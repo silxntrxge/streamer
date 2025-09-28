@@ -3,6 +3,6 @@ services:
     name: file-streamer
     env: python
     buildCommand: "pip install -r requirements.txt"
-    startCommand: "gunicorn app:app"
+    startCommand: "gunicorn --timeout 600 app:app"
     port: 8000
 
