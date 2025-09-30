@@ -59,9 +59,9 @@ def put_file():
                 for chunk in response.iter_content(chunk_size=8192):
                     f.write(chunk)
             
-            # Redirect to a URL with the new filename
+            # Instead of redirecting, return the URL as a string
             redirect_url = url_for('put_file', url=unique_filename, _external=True, _scheme='https')
-            return redirect(redirect_url)
+            return redirect_url # Return the URL string
 
         except requests.exceptions.RequestException as e:
             return f"Error processing file: {e}", 500
