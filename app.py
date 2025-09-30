@@ -59,7 +59,7 @@ def put_file():
                 f.write(chunk)
         
         # Redirect to a URL with the new filename
-        redirect_url = url_for('put_file', url=unique_filename, _external=True)
+        redirect_url = url_for('put_file', url=unique_filename, _external=True, _scheme='https')
         return redirect(redirect_url)
 
     except requests.exceptions.RequestException as e:
